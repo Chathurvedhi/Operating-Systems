@@ -1,5 +1,6 @@
-ID :1; Orig Level: 3; Final Level: 3; Comp Time: 60; TAT: 60
-ID :2; Orig Level: 4; Final Level: 4; Comp Time: 40; TAT: 40
-ID :3; Orig Level: 2; Final Level: 2; Comp Time: 95; TAT: 85
-ID :4; Orig Level: 1; Final Level: 1; Comp Time: 135; TAT: 115
-Mean Turnaround Time: 75; Throughput 0.0296296
+ID :1 Orig Level 3 Final Level 4 Comp Time 150 TAT 150
+ID :2 Orig Level 4 Final Level 4 Comp Time 160 TAT 160
+ID :3 Orig Level 2 Final Level 4 Comp Time 175 TAT 165
+ID :4 Orig Level 1 Final Level 4 Comp Time 215 TAT 195
+Average TAT 167
+Throughput 0.0186047

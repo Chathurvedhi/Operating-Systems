@@ -33,11 +33,9 @@ class MLFQ
     int num_proc;           // number of processes
     int num_proc_finished;  // number of processes finished
     int current_time;       // current time
-    int RR_time;            // timer for round robin
 
     string input_file;      // input file name
     string output_file;     // output file name
-    bool verbose;           // flag to check if verbose output is needed
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, ComparePairs> proc_start;     // stores the processes in the order of arrival time
     unordered_map<int, Process> processes;  // stores the processes with their id as key
@@ -46,13 +44,12 @@ class MLFQ
 
     // Constructor
     public:
-    MLFQ(int Q, int T, string input_file, string output_file, bool V)
+    MLFQ(int Q, int T, string input_file, string output_file)
     {
         this->RR_slice = Q;
         this->prio_jump_timer = T;
         this->input_file = input_file;
         this->output_file = output_file;
-        this->verbose = V;
     }
 
     // Function to read the input file
@@ -76,30 +73,165 @@ class MLFQ
             processes[id] = p;
             num_proc++;
         }
-        fin.close();
 
+        // Add processes to priority queue in the order of arrival time and then id
         for(auto it=processes.begin(); it!=processes.end(); it++)
         {
             proc_start.push({it->second.arrival_time, it->second.id});
         }
+
+        fin.close();
     }
 
-    // Function for final output
+    // Check for priority jumps
+    void check_prio_switch()
+    {
+        vector<pair<int, int>> temp;
+
+        // Check for SJF_3 queue and promote to RR_4
+        while(!SJF_3.empty())
+        {
+            temp.push_back(SJF_3.top());
+            SJF_3.pop();
+        }
+
+        for(auto it=temp.begin(); it!=temp.end(); it++)
+        {
+            int id = it->second;
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
+            {
+                processes[id].prio_jumps++;
+                RR_4.push(id);
+                temp.erase(it);
+                it--;
+            }
+
+            else
+            {
+                SJF_3.push(*it);
+            }
+        }
+
+        // Check for SJF_2 queue and promote to SJF_3
+        temp.clear();
+
+        while(!SJF_2.empty())
+        {
+            temp.push_back(SJF_2.top());
+            SJF_2.pop();
+        }
+
+        for(auto it=temp.begin(); it!=temp.end(); it++)
+        {
+            int id = it->second;
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
+            {
+                processes[id].prio_jumps++;
+                SJF_3.push(*it);
+                temp.erase(it);
+                it--;
+            }
+
+            else
+            {
+                SJF_2.push(*it);
+            }
+        }
+
+        // Check for FCFS_1 queue and promote to SJF_2
+        while(!FCFS_1.empty())
+        {
+            int id = FCFS_1.front();
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
+            {
+                processes[id].prio_jumps++;
+                SJF_2.push({processes[id].burst_time, id});
+                FCFS_1.pop();
+            }
+            else
+            {
+                break;
+            }   
+        }
+    }
+
+    // RR_4 queue iteration
+    void RR_4_run()
+    {
+        int id = RR_4.front();
+        RR_4.pop();
+        if(RR_slice > processes[id].burst_time - processes[id].process_time)
+        {
+            current_time += processes[id].burst_time - processes[id].process_time;
+            processes[id].process_time = processes[id].burst_time;
+            processes[id].completion_time = current_time;
+            processes[id].finished = true;
+            processes[id].end_level = 4;
+            num_proc_finished++;
+        }
+        else
+        {
+            processes[id].process_time += RR_slice;
+            current_time += RR_slice;
+            RR_4.push(id);
+        }   
+    }
+
+    // SJF_3 iteration
+    void SJF_3_run()
+    {
+        int id = SJF_3.top().second;
+        SJF_3.pop();
+        current_time = current_time + processes[id].burst_time - processes[id].process_time;
+        processes[id].process_time = processes[id].burst_time;
+        processes[id].completion_time = current_time;
+        processes[id].end_level = 3;
+        processes[id].finished = true;
+        num_proc_finished++;
+    }
+
+    // SJF_2 iteration
+    void SJF_2_run()
+    {
+        int id = SJF_2.top().second;
+        SJF_2.pop();
+        current_time = current_time + processes[id].burst_time - processes[id].process_time;
+        processes[id].process_time = processes[id].burst_time;
+        processes[id].completion_time = current_time;
+        processes[id].end_level = 2;
+        processes[id].finished = true;
+        num_proc_finished++;
+    }
+
+    // FCFS_1 iteration
+    void FCFS_1_run()
+    {
+        int id = FCFS_1.front();
+        FCFS_1.pop();
+        current_time = current_time + processes[id].burst_time - processes[id].process_time;
+        processes[id].process_time = processes[id].burst_time;
+        processes[id].completion_time = current_time;
+        processes[id].end_level = 1;
+        processes[id].finished = true;
+        num_proc_finished++;
+    }
+
+    // Final Output function
     void output_stats()
     {
         ofstream fout(output_file);
         int tat_avg = 0;
         for(int i=1; i<=num_proc; i++)
         {
-            fout << "ID :" << processes[i].id << "; Orig Level: " << processes[i].start_level << "; Final Level: " << processes[i].end_level << "; Comp Time: " << processes[i].completion_time << "; TAT: " << processes[i].completion_time - processes[i].arrival_time << endl;
+            fout << "ID :" << processes[i].id << " Orig Level " << processes[i].start_level << " Final Level " << processes[i].end_level << " Comp Time " << processes[i].completion_time << " TAT " << processes[i].completion_time - processes[i].arrival_time << endl;
             tat_avg += processes[i].completion_time - processes[i].arrival_time;
         }
-        fout << "Mean Turnaround Time: " << tat_avg/num_proc << "; ";
+        fout << "Average TAT " << tat_avg/num_proc << endl;
         fout << "Throughput " << num_proc/(current_time*1.0) << endl;
         fout.close();
     }
 
-    // Function for verbose output
+    // Print the current state of the queues
     void print_stats()
     {
         cout << "***********************" << endl;
@@ -142,254 +274,86 @@ class MLFQ
         cout << endl;
     }
 
-    void proc_add()
-    {
-        priority_queue<int, vector<int>, greater<int>> temp_RR_4;
-        priority_queue<int, vector<int>, greater<int>> temp_FCFS_1;
-        vector<int> temp_SJF_3, temp_SJF_2;
-
-        // Arrivals to MLFQ
-        while(!proc_start.empty() && proc_start.top().first <= current_time)
-        {
-            int id = proc_start.top().second;
-            proc_start.pop();
-            if(processes[id].start_level == 4)
-            {
-                temp_RR_4.push(id);
-            }
-            else if(processes[id].start_level == 3)
-            {
-                temp_SJF_3.push_back(id);
-            }
-            else if(processes[id].start_level == 2)
-            {
-                temp_SJF_2.push_back(id);
-            }
-            else if(processes[id].start_level == 1)
-            {
-                temp_FCFS_1.push(id);
-            }
-        }
-
-        // Priority jumps
-
-        vector<pair<int, int>> temp;
-
-        // Check for SJF_3 queue and promote to RR_4
-        while(!SJF_3.empty())
-        {
-            temp.push_back(SJF_3.top());
-            SJF_3.pop();
-        }
-
-        for(auto it=temp.begin(); it!=temp.end(); it++)
-        {
-            int id = it->second;
-            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
-            {
-                processes[id].prio_jumps++;
-                temp_RR_4.push(id);
-                temp.erase(it);
-                it--;
-            }
-
-            else
-            {
-                SJF_3.push(*it);
-            }
-        }
-
-        // Check for SJF_2 queue and promote to SJF_3
-        temp.clear();
-
-        while(!SJF_2.empty())
-        {
-            temp.push_back(SJF_2.top());
-            SJF_2.pop();
-        }
-
-        for(auto it=temp.begin(); it!=temp.end(); it++)
-        {
-            int id = it->second;
-            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
-            {
-                processes[id].prio_jumps++;
-                temp_SJF_3.push_back(id);
-                temp.erase(it);
-                it--;
-            }
-
-            else
-            {
-                SJF_2.push(*it);
-            }
-        }
-
-        // Check for FCFS_1 queue and promote to SJF_2
-        while(!FCFS_1.empty())
-        {
-            int id = FCFS_1.front();
-            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
-            {
-                processes[id].prio_jumps++;
-                temp_SJF_2.push_back(id);
-                FCFS_1.pop();
-            }
-            else
-            {
-                break;
-            }   
-        }
-
-        // Add the processes to the queues
-
-        while(!temp_RR_4.empty())
-        {
-            RR_4.push(temp_RR_4.top());
-            temp_RR_4.pop();
-        }
-
-        for(auto it=temp_SJF_3.begin(); it!=temp_SJF_3.end(); it++)
-        {
-            SJF_3.push({processes[*it].burst_time, *it});
-        }
-
-        for(auto it=temp_SJF_2.begin(); it!=temp_SJF_2.end(); it++)
-        {
-            SJF_2.push({processes[*it].burst_time, *it});
-        }
-
-        while(!temp_FCFS_1.empty())
-        {
-            FCFS_1.push(temp_FCFS_1.top());
-            temp_FCFS_1.pop();
-        }
-    }
-
-    // Function to run the processes in RR_4 queue for 1 unit of time
-    void run_RR()
-    {
-        int id = RR_4.front();
-        processes[id].process_time++;
-        RR_time++;
-        current_time++;
-
-        if(processes[id].process_time == processes[id].burst_time)
-        {
-            RR_4.pop();
-            processes[id].completion_time = current_time;
-            processes[id].end_level = 4;
-            processes[id].finished = true;
-            num_proc_finished++;
-            RR_time = 0;
-        }
-
-        else if(RR_time == RR_slice)
-        {
-            RR_4.pop();
-            RR_4.push(id);
-            RR_time = 0;
-        }
-    }
-
-    // Function to run the processes in SJF_3 queue for 1 unit of time
-    void run_SJF_3()
-    {
-        int id = SJF_3.top().second;
-        processes[id].process_time++;
-        current_time++;
-
-        if(processes[id].process_time == processes[id].burst_time)
-        {
-            processes[id].completion_time = current_time;
-            processes[id].end_level = 3;
-            processes[id].finished = true;
-            num_proc_finished++;
-            SJF_3.pop();
-        }
-    }
-
-    // Function to run the processes in SJF_2 queue for 1 unit of time
-    void run_SJF_2()
-    {
-        int id = SJF_2.top().second;
-        processes[id].process_time++;
-        current_time++;
-
-        if(processes[id].process_time == processes[id].burst_time)
-        {
-            processes[id].completion_time = current_time;
-            processes[id].end_level = 2;
-            processes[id].finished = true;
-            num_proc_finished++;
-            SJF_2.pop();
-        }
-    }
-
-    // Function to run the processes in FCFS_1 queue for 1 unit of time
-    void run_FCFS()
-    {
-        int id = FCFS_1.front();
-        processes[id].process_time++;
-        current_time++;
-
-        if(processes[id].process_time == processes[id].burst_time)
-        {
-            processes[id].completion_time = current_time;
-            processes[id].end_level = 1;
-            processes[id].finished = true;
-            num_proc_finished++;
-            FCFS_1.pop();
-        }
-    }
-
-    // Main run
     void main_run()
     {
-        read_input();
         current_time = 0;
         num_proc_finished = 0;
 
-        while(num_proc_finished != num_proc)
+        // Read the input file
+        read_input();
+
+        // Run the scheduler
+        while(num_proc != num_proc_finished)
         {
-            // Add processes via arrival or priority jump
-            proc_add();
+            // Print the current state of the queues
+            // print_stats();
 
-            // Stats printing if needed
-            if(verbose) print_stats();
+            // Check for additions to the queues
+            while(!proc_start.empty() && proc_start.top().first <= current_time)
+            {
+                int id = proc_start.top().second;
+                proc_start.pop();
+                if(processes[id].start_level == 4)
+                {
+                    RR_4.push(id);
+                }
+                else if(processes[id].start_level == 3)
+                {
+                    SJF_3.push({processes[id].burst_time, id});
+                }
+                else if(processes[id].start_level == 2)
+                {
+                    SJF_2.push({processes[id].burst_time, id});
+                }
+                else if(processes[id].start_level == 1)
+                {
+                    FCFS_1.push(id);
+                }
+            }
 
-            // Run the processes based on highest priority non empty queue
+            // Print the current state of the queues
+            // print_stats();
+
+            // Check for priority jumps
+            check_prio_switch();
+
+            // Check if all queues are empty
+            if(RR_4.empty() && SJF_3.empty() && SJF_2.empty() && FCFS_1.empty())
+            {
+                current_time = proc_start.top().first;
+                continue;
+            }
+
+            // Run the queues
             if(!RR_4.empty())
             {
-                run_RR();
+                RR_4_run();
             }
             else if(!SJF_3.empty())
             {
-                run_SJF_3();
+                SJF_3_run();
             }
             else if(!SJF_2.empty())
             {
-                run_SJF_2();
+                SJF_2_run();
             }
             else if(!FCFS_1.empty())
             {
-                run_FCFS();
+                FCFS_1_run();
             }
-            else
-            {
-                current_time++;
-            }
+
+            // Print the current state of the queues
+            // print_stats();
         }
 
-        // Output to file
+        // Print the final output
         output_stats();
     }
 };
 
 int main(int argc, char ** argv ) 
 {
-    int Q = 10, T = 500;
-    bool V = false;
+    int Q = 10, T = 50;
     string input_file = "input.txt", output_file = "output.txt";
 
     
@@ -415,13 +379,9 @@ int main(int argc, char ** argv )
             output_file = argv[i+1];
             i++;
         }
-        else if(strcmp(argv[i], "-v")==0)
-        {
-            V = true;
-        }
     }
 
-    MLFQ Queue_Run = MLFQ(Q, T, input_file, output_file, V);
+    MLFQ Queue_Run = MLFQ(Q, T, input_file, output_file);
 
     // MLFQ Queue_Run = MLFQ(10, 50, "input.txt", "output.txt");
     Queue_Run.main_run();
