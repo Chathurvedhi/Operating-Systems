@@ -1,544 +1,810 @@
-After Prio Switch : 
-------------------------------
-Current time: 0
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 10
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 10
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 20
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 20
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 30
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 30
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 40
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 40
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 50
-------------------------------
-RR_4: 2 
-SJF_3: 1 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-Promoted to RR_4
-After Prio Switch : 
-------------------------------
-Current time: 50
-------------------------------
-RR_4: 2 1 
-SJF_3: 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 60
-------------------------------
-RR_4: 1 2 
-SJF_3: 
-SJF_2: 3 
-FCFS_1: 4 
-------------------------------
-Promoted to SJF_3
-After Prio Switch : 
-------------------------------
-Current time: 60
-------------------------------
-RR_4: 1 2 
-SJF_3: 3 
-SJF_2: 
-FCFS_1: 4 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 70
-------------------------------
-RR_4: 2 1 
-SJF_3: 3 
-SJF_2: 
-FCFS_1: 4 
-------------------------------
-Promoted to SJF_2
-After Prio Switch : 
-------------------------------
-Current time: 70
-------------------------------
-RR_4: 2 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 80
-------------------------------
-RR_4: 1 2 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 80
-------------------------------
-RR_4: 1 2 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 90
-------------------------------
-RR_4: 2 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 90
-------------------------------
-RR_4: 2 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-Process 2 completed at time 90
-After run : 
-------------------------------
-Current time: 90
-------------------------------
-RR_4: 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 90
-------------------------------
-RR_4: 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 100
-------------------------------
-RR_4: 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 100
-------------------------------
-RR_4: 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 110
-------------------------------
-RR_4: 1 
-SJF_3: 3 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-Promoted to RR_4
-After Prio Switch : 
-------------------------------
-Current time: 110
-------------------------------
-RR_4: 1 3 
-SJF_3: 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 120
-------------------------------
-RR_4: 3 1 
-SJF_3: 
-SJF_2: 4 
-FCFS_1: 
-------------------------------
-Promoted to SJF_3
-After Prio Switch : 
-------------------------------
-Current time: 120
-------------------------------
-RR_4: 3 1 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 130
-------------------------------
-RR_4: 1 3 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 130
-------------------------------
-RR_4: 1 3 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 140
-------------------------------
-RR_4: 3 1 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 140
-------------------------------
-RR_4: 3 1 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 150
-------------------------------
-RR_4: 1 3 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 150
-------------------------------
-RR_4: 1 3 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 160
-------------------------------
-RR_4: 3 1 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 160
-------------------------------
-RR_4: 3 1 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 170
-------------------------------
-RR_4: 1 3 
-SJF_3: 4 
-SJF_2: 
-FCFS_1: 
-------------------------------
-Promoted to RR_4
-After Prio Switch : 
-------------------------------
-Current time: 170
-------------------------------
-RR_4: 1 3 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 180
-------------------------------
-RR_4: 3 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 180
-------------------------------
-RR_4: 3 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-Process 3 completed at time 185
-After run : 
-------------------------------
-Current time: 185
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 185
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 195
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 195
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 205
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 205
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 215
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 215
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 225
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 225
-------------------------------
-RR_4: 4 1 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 235
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 235
-------------------------------
-RR_4: 1 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-Process 1 completed at time 235
-After run : 
-------------------------------
-Current time: 235
-------------------------------
-RR_4: 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 235
-------------------------------
-RR_4: 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-After run : 
-------------------------------
-Current time: 245
-------------------------------
-RR_4: 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-After Prio Switch : 
-------------------------------
-Current time: 245
-------------------------------
-RR_4: 4 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-RR_4 run
-Process 4 completed at time 245
-After run : 
-------------------------------
-Current time: 245
-------------------------------
-RR_4: 
-SJF_3: 
-SJF_2: 
-FCFS_1: 
-------------------------------
-Output to file
-------------------------------
+***********************
+Current Time 0
+RR_4 Queue: [2, 0, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 1
+RR_4 Queue: [2, 1, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 2
+RR_4 Queue: [2, 2, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 3
+RR_4 Queue: [2, 3, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 4
+RR_4 Queue: [2, 4, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 5
+RR_4 Queue: [2, 5, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 6
+RR_4 Queue: [2, 6, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 7
+RR_4 Queue: [2, 7, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 8
+RR_4 Queue: [2, 8, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 9
+RR_4 Queue: [2, 9, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: 
+FCFS_1 Queue: 
+***********************
+Current Time 10
+RR_4 Queue: [2, 10, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 11
+RR_4 Queue: [2, 11, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 12
+RR_4 Queue: [2, 12, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 13
+RR_4 Queue: [2, 13, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 14
+RR_4 Queue: [2, 14, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 15
+RR_4 Queue: [2, 15, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 16
+RR_4 Queue: [2, 16, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 17
+RR_4 Queue: [2, 17, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 18
+RR_4 Queue: [2, 18, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 19
+RR_4 Queue: [2, 19, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: 
+***********************
+Current Time 20
+RR_4 Queue: [2, 20, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 21
+RR_4 Queue: [2, 21, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 22
+RR_4 Queue: [2, 22, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 23
+RR_4 Queue: [2, 23, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 24
+RR_4 Queue: [2, 24, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 25
+RR_4 Queue: [2, 25, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 26
+RR_4 Queue: [2, 26, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 27
+RR_4 Queue: [2, 27, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 28
+RR_4 Queue: [2, 28, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 29
+RR_4 Queue: [2, 29, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 30
+RR_4 Queue: [2, 30, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 31
+RR_4 Queue: [2, 31, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 32
+RR_4 Queue: [2, 32, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 33
+RR_4 Queue: [2, 33, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 34
+RR_4 Queue: [2, 34, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 35
+RR_4 Queue: [2, 35, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 36
+RR_4 Queue: [2, 36, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 37
+RR_4 Queue: [2, 37, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 38
+RR_4 Queue: [2, 38, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 39
+RR_4 Queue: [2, 39, 40, 0] ;
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 40
+RR_4 Queue: 
+SJF_3 Queue: [1, 0, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 41
+RR_4 Queue: 
+SJF_3 Queue: [1, 1, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 42
+RR_4 Queue: 
+SJF_3 Queue: [1, 2, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 43
+RR_4 Queue: 
+SJF_3 Queue: [1, 3, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 44
+RR_4 Queue: 
+SJF_3 Queue: [1, 4, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 45
+RR_4 Queue: 
+SJF_3 Queue: [1, 5, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 46
+RR_4 Queue: 
+SJF_3 Queue: [1, 6, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 47
+RR_4 Queue: 
+SJF_3 Queue: [1, 7, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 48
+RR_4 Queue: 
+SJF_3 Queue: [1, 8, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 49
+RR_4 Queue: 
+SJF_3 Queue: [1, 9, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 50
+RR_4 Queue: 
+SJF_3 Queue: [1, 10, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 51
+RR_4 Queue: 
+SJF_3 Queue: [1, 11, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 52
+RR_4 Queue: 
+SJF_3 Queue: [1, 12, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 53
+RR_4 Queue: 
+SJF_3 Queue: [1, 13, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 54
+RR_4 Queue: 
+SJF_3 Queue: [1, 14, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 55
+RR_4 Queue: 
+SJF_3 Queue: [1, 15, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 56
+RR_4 Queue: 
+SJF_3 Queue: [1, 16, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 57
+RR_4 Queue: 
+SJF_3 Queue: [1, 17, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 58
+RR_4 Queue: 
+SJF_3 Queue: [1, 18, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 59
+RR_4 Queue: 
+SJF_3 Queue: [1, 19, 20, 0] ; 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 60
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 0, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 61
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 1, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 62
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 2, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 63
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 3, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 64
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 4, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 65
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 5, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 66
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 6, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 67
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 7, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 68
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 8, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 69
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 9, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 70
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 10, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 71
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 11, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 72
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 12, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 73
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 13, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 74
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 14, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 75
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 15, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 76
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 16, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 77
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 17, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 78
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 18, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 79
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 19, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 80
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 20, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 81
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 21, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 82
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 22, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 83
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 23, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 84
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 24, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 85
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 25, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 86
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 26, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 87
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 27, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 88
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 28, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 89
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 29, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 90
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 30, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 91
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 31, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 92
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 32, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 93
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 33, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 94
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: [3, 34, 35, 10] ; 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 95
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 0, 40, 20] ; 
+***********************
+Current Time 96
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 1, 40, 20] ; 
+***********************
+Current Time 97
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 2, 40, 20] ; 
+***********************
+Current Time 98
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 3, 40, 20] ; 
+***********************
+Current Time 99
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 4, 40, 20] ; 
+***********************
+Current Time 100
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 5, 40, 20] ; 
+***********************
+Current Time 101
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 6, 40, 20] ; 
+***********************
+Current Time 102
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 7, 40, 20] ; 
+***********************
+Current Time 103
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 8, 40, 20] ; 
+***********************
+Current Time 104
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 9, 40, 20] ; 
+***********************
+Current Time 105
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 10, 40, 20] ; 
+***********************
+Current Time 106
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 11, 40, 20] ; 
+***********************
+Current Time 107
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 12, 40, 20] ; 
+***********************
+Current Time 108
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 13, 40, 20] ; 
+***********************
+Current Time 109
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 14, 40, 20] ; 
+***********************
+Current Time 110
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 15, 40, 20] ; 
+***********************
+Current Time 111
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 16, 40, 20] ; 
+***********************
+Current Time 112
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 17, 40, 20] ; 
+***********************
+Current Time 113
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 18, 40, 20] ; 
+***********************
+Current Time 114
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 19, 40, 20] ; 
+***********************
+Current Time 115
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 20, 40, 20] ; 
+***********************
+Current Time 116
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 21, 40, 20] ; 
+***********************
+Current Time 117
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 22, 40, 20] ; 
+***********************
+Current Time 118
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 23, 40, 20] ; 
+***********************
+Current Time 119
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 24, 40, 20] ; 
+***********************
+Current Time 120
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 25, 40, 20] ; 
+***********************
+Current Time 121
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 26, 40, 20] ; 
+***********************
+Current Time 122
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 27, 40, 20] ; 
+***********************
+Current Time 123
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 28, 40, 20] ; 
+***********************
+Current Time 124
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 29, 40, 20] ; 
+***********************
+Current Time 125
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 30, 40, 20] ; 
+***********************
+Current Time 126
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 31, 40, 20] ; 
+***********************
+Current Time 127
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 32, 40, 20] ; 
+***********************
+Current Time 128
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 33, 40, 20] ; 
+***********************
+Current Time 129
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 34, 40, 20] ; 
+***********************
+Current Time 130
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 35, 40, 20] ; 
+***********************
+Current Time 131
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 36, 40, 20] ; 
+***********************
+Current Time 132
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 37, 40, 20] ; 
+***********************
+Current Time 133
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 38, 40, 20] ; 
+***********************
+Current Time 134
+RR_4 Queue: 
+SJF_3 Queue: 
+SJF_2 Queue: 
+FCFS_1 Queue: [4, 39, 40, 20] ; 

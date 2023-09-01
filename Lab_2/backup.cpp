@@ -68,7 +68,7 @@ class MLFQ
             p.completion_time = -1;
             p.process_time = 0;
             p.end_level = -1;
-            p.prio_jumps = 0;
+            p.prio_jumps = 1;
             p.finished = false;
             processes[id] = p;
             num_proc++;
@@ -98,9 +98,8 @@ class MLFQ
         for(auto it=temp.begin(); it!=temp.end(); it++)
         {
             int id = it->second;
-            if(processes[id].prio_jumps * prio_jump_timer <= current_time)
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
             {
-                cout << "Promoted to RR_4" << endl;
                 processes[id].prio_jumps++;
                 RR_4.push(id);
                 temp.erase(it);
@@ -113,9 +112,9 @@ class MLFQ
             }
         }
 
-        vector<pair<int, int>> temp;
-
         // Check for SJF_2 queue and promote to SJF_3
+        temp.clear();
+
         while(!SJF_2.empty())
         {
             temp.push_back(SJF_2.top());
@@ -125,9 +124,8 @@ class MLFQ
         for(auto it=temp.begin(); it!=temp.end(); it++)
         {
             int id = it->second;
-            if(processes[id].prio_jumps * prio_jump_timer <= current_time)
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
             {
-                cout << "Promoted to SJF_3" << endl;
                 processes[id].prio_jumps++;
                 SJF_3.push(*it);
                 temp.erase(it);
@@ -140,20 +138,20 @@ class MLFQ
             }
         }
 
-        // Check for SJF_2 queue and promote to SJF_3
-        
-
         // Check for FCFS_1 queue and promote to SJF_2
         while(!FCFS_1.empty())
         {
             int id = FCFS_1.front();
-            if(processes[id].prio_jumps * prio_jump_timer <= current_time)
+            if(processes[id].prio_jumps * prio_jump_timer + processes[id].arrival_time <= current_time)
             {
-                cout << "Promoted to SJF_2" << endl;
                 processes[id].prio_jumps++;
                 SJF_2.push({processes[id].burst_time, id});
                 FCFS_1.pop();
             }
+            else
+            {
+                break;
+            }   
         }
     }
 
@@ -170,7 +168,6 @@ class MLFQ
             processes[id].finished = true;
             processes[id].end_level = 4;
             num_proc_finished++;
-            cout << "Process " << id << " completed at time " << current_time << endl;
         }
         else
         {
@@ -191,7 +188,6 @@ class MLFQ
         processes[id].end_level = 3;
         processes[id].finished = true;
         num_proc_finished++;
-        cout << "Process " << id << " completed at time " << current_time << endl;
     }
 
     // SJF_2 iteration
@@ -205,7 +201,6 @@ class MLFQ
         processes[id].end_level = 2;
         processes[id].finished = true;
         num_proc_finished++;
-        cout << "Process " << id << " completed at time " << current_time << endl;
     }
 
     // FCFS_1 iteration
@@ -219,7 +214,6 @@ class MLFQ
         processes[id].end_level = 1;
         processes[id].finished = true;
         num_proc_finished++;
-        cout << "Process " << id << " completed at time " << current_time << endl;
     }
 
     // Final Output function
@@ -271,6 +265,7 @@ class MLFQ
             cout << temp.top().second << " ";
             temp.pop();
         }
+        cout << endl;
 
         cout << "FCFS_1: ";
         temp_rr = FCFS_1;
@@ -295,10 +290,10 @@ class MLFQ
         while(num_proc != num_proc_finished)
         {
             // Print the current state of the queues
-            print_stats();
+            // print_stats();
 
             // Check for additions to the queues
-            while(proc_start.top().first <= current_time)
+            while(!proc_start.empty() && proc_start.top().first <= current_time)
             {
                 int id = proc_start.top().second;
                 proc_start.pop();
@@ -319,6 +314,9 @@ class MLFQ
                     FCFS_1.push(id);
                 }
             }
+
+            // Print the current state of the queues
+            // print_stats();
 
             // Check for priority jumps
             check_prio_switch();
@@ -349,7 +347,7 @@ class MLFQ
             }
 
             // Print the current state of the queues
-            print_stats();
+            // print_stats();
         }
 
         // Print the final output

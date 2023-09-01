@@ -1,0 +1,6 @@
+To enforce 5% of CPU running, we have to force the 10ms in the highest queue to be 5% of time between boosts. Thus 10/B = 5%
+B = 200ms  
+
+Command :
+python mlfq.py -B 200 -c
+
