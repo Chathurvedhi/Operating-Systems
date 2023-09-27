@@ -1,19 +1,34 @@
 >> load file1 file2
 file1 is loaded in main memory and is assigned process id 1
 file2 is loaded in virtual memory and is assigned process id 2
->> pteall pages
-Printed page table entries of all processes in pages
 >> listpr
 Processes in main memory: 1 
 Processes in virtual memory: 2 
 >> swapin 2
 Process with pid 1 is swapped out from main memory
 Process with pid 2 is swapped into main memory
->> pteall pages
-Printed page table entries of all processes in pages
->> load file3 file4
-file3 is loaded in virtual memory and is assigned process id 3
-file4 could not be loaded - memory is full
->> pteall pages
-Printed page table entries of all processes in pages
+>> run 1
+Process with pid 2 is swapped out from main memory
+Process with pid 1 is swapped into main memory
+Command: load 11, 1001
+Result: Value of addr 1001 is changed to 11
+Command: load 21, 2001
+Result: Value of addr 2001 is changed to 21
+Command: add 1001, 2001, 3001
+Result: Value of addr 1001 = 11, Value of addr 2001 = 21, Value of addr 3001 = 32
+Command: print 3000
+Result: Value of addr 3000 = 0
+Command: print 3001
+Result: Value of addr 3001 = 32
+>> print 3000 3
+Value at 3000: 0
+Value at 3001: 32
+Value at 3002: 0
+>> swapin 2
+Process with pid 1 is swapped out from main memory
+Process with pid 2 is swapped into main memory
+>> print 3000 3
+Value at 3000: 0
+Value at 3001: 32
+Value at 3002: 0
 >> exit

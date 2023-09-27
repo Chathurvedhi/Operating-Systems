@@ -1,8 +1,8 @@
 load file1 file2
-pteall pages
 listpr
 swapin 2
-pteall pages
-load file3 file4
-pteall pages
+run 1
+print 3000 3
+swapin 2
+print 3000 3
 exit

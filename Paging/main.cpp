@@ -467,23 +467,18 @@ class MEM
     // Function to print the memory in main memory
     void mem_print(string line)
     {
-        ofstream fout(line, ios::app);
+        ofstream fout(outfile, ios::app);
         
         // Split line into memloc and length
 
         int memloc = stoi(line.substr(0, line.find(" ")));
         line = line.substr(line.find(" ")+1);
         int length = stoi(line);
+        if(verbose) cout << "Memloc: " << memloc << ", Length: " << length << endl;
 
         // Print memory allocated in main memory
         while(length--)
         {
-            if(main_mem.find(memloc) == main_mem.end())
-            {
-                fout << "Value at "  << memloc << ": " << "0" << endl;
-                memloc++;
-                continue;
-            }
             fout << "Value at "  << memloc << ": " << main_mem[memloc] << endl;
             memloc++;
         }
@@ -547,6 +542,7 @@ class MEM
                 
                 // Convert page number to main memory location
                 int main_mem_loc = pid_to_file[pid].page_table[page_num]*pagesize + offset;
+                if(verbose) cout << "Main mem loc: " << main_mem_loc << endl;
 
                 // Store num in main memory
                 main_mem[main_mem_loc] = num;
@@ -587,6 +583,7 @@ class MEM
                 int sum = main_mem[x_main_mem_loc] + main_mem[y_main_mem_loc];
                 if(verbose) cout << "Sum: " << sum << endl;
                 main_mem[z_main_mem_loc] = sum;
+                if(verbose) cout << "Value of addr " << x << " = " << main_mem[x_main_mem_loc] << ", Value of addr " << y << " = " << main_mem[y_main_mem_loc] << ", Value of addr " << z << " = " << main_mem[z_main_mem_loc] << endl;
                 
                 fout << "Result: Value of addr " << x << " = " << main_mem[x_main_mem_loc] << ", Value of addr " << y << " = " << main_mem[y_main_mem_loc] << ", Value of addr " << z << " = " << main_mem[z_main_mem_loc] << endl;
             }
@@ -625,6 +622,7 @@ class MEM
                 int diff = main_mem[x_main_mem_loc] - main_mem[y_main_mem_loc];
                 if(verbose) cout << "Diff: " << diff << endl;
                 main_mem[z_main_mem_loc] = diff;
+                if(verbose) cout << "Value of addr " << x << " = " << main_mem[x_main_mem_loc] << ", Value of addr " << y << " = " << main_mem[y_main_mem_loc] << ", Value of addr " << z << " = " << main_mem[z_main_mem_loc] << endl;
 
                 fout << "Result: Value of addr " << x << " = " << main_mem[x_main_mem_loc] << ", Value of addr " << y << " = " << main_mem[y_main_mem_loc] << ", Value of addr " << z << " = " << main_mem[z_main_mem_loc] << endl;
             }
@@ -648,6 +646,7 @@ class MEM
 
                 // Convert page number to main memory location
                 int main_mem_loc = pid_to_file[pid].page_table[page_num]*pagesize + offset;
+                if(verbose) cout << "Main mem loc: " << main_mem_loc << endl;
 
                 // Print the value at virtmemloc
                 fout << "Result: Value of addr " << virtmemloc << " = " << main_mem[main_mem_loc] << endl;
