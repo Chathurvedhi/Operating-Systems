@@ -1,0 +1,19 @@
+>> load file1 file2
+file1 is loaded in main memory and is assigned process id 1
+file2 is loaded in virtual memory and is assigned process id 2
+>> pteall pages
+Printed page table entries of all processes in pages
+>> listpr
+Processes in main memory: 1 
+Processes in virtual memory: 2 
+>> swapin 2
+Process with pid 1 is swapped out from main memory
+Process with pid 2 is swapped into main memory
+>> pteall pages
+Printed page table entries of all processes in pages
+>> load file3 file4
+file3 is loaded in virtual memory and is assigned process id 3
+file4 could not be loaded - memory is full
+>> pteall pages
+Printed page table entries of all processes in pages
+>> exit
