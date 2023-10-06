@@ -1,15 +1,8 @@
->> load file1 file2
+>> load file1 file2 file3
 file1 is loaded in main memory and is assigned process id 1
-file2 is loaded in virtual memory and is assigned process id 2
->> listpr
-Processes in main memory: 1 
-Processes in virtual memory: 2 
->> swapin 2
-Process with pid 1 is swapped out from main memory
-Process with pid 2 is swapped into main memory
+file2 is loaded in main memory and is assigned process id 2
+file3 is loaded in main memory and is assigned process id 3
 >> run 1
-Process with pid 2 is swapped out from main memory
-Process with pid 1 is swapped into main memory
 Command: load 11, 1001
 Result: Value of addr 1001 is changed to 11
 Command: load 21, 2001
@@ -20,15 +13,65 @@ Command: print 3000
 Result: Value of addr 3000 = 0
 Command: print 3001
 Result: Value of addr 3001 = 32
->> print 3000 3
-Value at 3000: 0
-Value at 3001: 32
-Value at 3002: 0
+>> pteall pages
+Printed page table entries of all processes in pages
+>> swapout 2
+Process with pid 2 is swapped out from main memory
+>> pte 2 pages
+Printed page table entry of process with pid 2 in pages
+>> load file4
+file4 is loaded in main memory and is assigned process id 4
 >> swapin 2
-Process with pid 1 is swapped out from main memory
+Process with pid 3 is swapped out from main memory
 Process with pid 2 is swapped into main memory
->> print 3000 3
-Value at 3000: 0
-Value at 3001: 32
-Value at 3002: 0
+>> listpr
+Processes in main memory: 1 2 4 
+Processes in virtual memory: 3 
+>> pteall pages
+Printed page table entries of all processes in pages
+>> run 2
+Command: load 12, 1002
+Result: Value of addr 1002 is changed to 12
+Command: load 22, 2002
+Result: Value of addr 2002 is changed to 22
+Command: sub 2002, 1002, 3002
+Result: Value of addr 2002 = 22, Value of addr 1002 = 12, Value of addr 3002 = 10
+Command: print 3002
+Result: Value of addr 3002 = 10
+>> kill 1
+Process with pid 1 is killed from main memory
+>> pteall pages
+Printed page table entries of all processes in pages
+>> run 2
+Command: load 12, 1002
+Result: Value of addr 1002 is changed to 12
+Command: load 22, 2002
+Result: Value of addr 2002 is changed to 22
+Command: sub 2002, 1002, 3002
+Result: Value of addr 2002 = 22, Value of addr 1002 = 12, Value of addr 3002 = 10
+Command: print 3002
+Result: Value of addr 3002 = 10
+>> run 3
+Process with pid 3 is swapped into main memory
+Command: load 13, 1003
+Result: Value of addr 1003 is changed to 13
+Command: load 33, 3003
+Result: Value of addr 3003 is changed to 33
+Command: add 1003, 3003, 3005
+Result: Value of addr 1003 = 13, Value of addr 3003 = 33, Value of addr 3005 = 46
+Command: print 3005
+Result: Value of addr 3005 = 46
+Command: print 10000
+Invalid virtual memory location
+>> run 4
+Command: load 14, 1004
+Result: Value of addr 1004 is changed to 14
+Command: load 24, 2004
+Result: Value of addr 2004 is changed to 24
+Command: sub 2004, 1004, 3004
+Result: Value of addr 2004 = 24, Value of addr 1004 = 14, Value of addr 3004 = 10
+Command: print 3004
+Result: Value of addr 3004 = 10
+>> run 1
+Process with pid 1 does not exist
 >> exit

@@ -1,0 +1,3 @@
+* The intent of learning how paging works is well put together
+* Problem: The problem statement can be viewed differently for each person and it can cause confusion in how a test case should provide output
+* Following a few protocols may lead to problems in execution such as LRU can get a swapin to not occur but if done in a different manner it works

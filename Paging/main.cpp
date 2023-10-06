@@ -211,6 +211,9 @@ class MEM
             fout<< "Process with pid "<<pid<<" is killed from virtual memory"<<endl;
         }
 
+        // Remove from pid_to_file
+        pid_to_file.erase(pid);
+
     }
     
     // Function to list the processes
@@ -351,7 +354,7 @@ class MEM
     }
 
     // Function to swap out a process
-    void swapout(int pid)
+    int swapout(int pid)
     {
         ofstream fout(outfile, ios::app);
 
@@ -378,7 +381,14 @@ class MEM
         {
             if(verbose) cout << "No process with pid " << pid << endl;
             fout<< "Process with pid "<<pid<<" does not exist in Main Memory"<<endl;
-            return;
+            return -1;
+        }
+
+        if(virtsize - virtoccupied < pid_to_file[pid].size)
+        {
+            if(verbose) cout << "Not enough space in virtual memory" << endl;
+            fout<< "Process with pid "<<pid<<" cannot be swapped out - not enough space in Virtual Memory"<<endl;
+            return -1;
         }
 
         // Deallocate pages in main memory and move to virtual memory
@@ -407,10 +417,12 @@ class MEM
 
         // Output to outfile
         fout<< "Process with pid "<<pid<<" is swapped out from main memory"<<endl;
+
+        return 1;
     }
 
     // Function to swap in a process
-    void swapin(int pid)
+    int swapin(int pid)
     {
         ofstream fout(outfile, ios::app);
 
@@ -419,7 +431,7 @@ class MEM
         {
             if(verbose) cout << "No process with pid " << pid << endl;
             fout<< "Process with pid "<<pid<<" does not exist in Virtual Memory"<<endl;
-            return;
+            return -1;
         }
 
         unordered_map<int, int> virt_mem_temp = virt_mem;
@@ -435,7 +447,12 @@ class MEM
         {
             // Swap out the LRU process
             if (verbose) cout << "Swapping out process with pid " << mainpid.front() << endl;
-            swapout(mainpid.front());
+            int temp = swapout(mainpid.front());
+            if(temp == -1)
+            {
+                fout << "Failed to swap out process with pid " << mainpid.front() << endl;
+                return -1;
+            }
         }
 
         // Now allocate memory in main memory
@@ -461,7 +478,7 @@ class MEM
 
         // Output to outfile
         fout<< "Process with pid "<<pid<<" is swapped into main memory"<<endl;
-        return;
+        return 1;
     }
 
     // Function to print the memory in main memory
@@ -499,7 +516,12 @@ class MEM
         // If process is in virtual memory, swap it in
         if(pid_to_file[pid].location == 1)
         {
-            swapin(pid);
+            int temp = swapin(pid);
+            if(temp == -1) 
+            {
+                fout << "Failed to swap in process with pid " << pid << endl;
+                return;
+            }
         }
 
         // Input custom commands from file with pid
@@ -712,12 +734,12 @@ class MEM
             else if(first.compare("swapout")==0)
             {
                 // Swap out the process
-                swapout(stoi(line));
+                int k = swapout(stoi(line));
             }
             else if(first.compare("swapin")==0)
             {
                 // Swap in the process
-                swapin(stoi(line));
+                int k = swapin(stoi(line));
             }
             else if(first.compare("print")==0)
             {
@@ -739,7 +761,7 @@ class MEM
 int main(int argc, char* argv[])
 {
     // Take input for Main Mem Size(M), Virt Mem Size(V), Page Size(P), infile outfile using arguments
-    int M = 8, V = 16, P = 512;
+    int M = 32, V = 32, P = 512;
     string infile = "inp", outfile = "out";
     for(int i=1; i<argc; i++)
     {

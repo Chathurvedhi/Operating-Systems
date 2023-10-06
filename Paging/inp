@@ -1,8 +1,17 @@
-load file1 file2
-listpr
-swapin 2
+load file1 file2 file3
 run 1
-print 3000 3
+pteall pages
+swapout 2
+pte 2 pages
+load file4
 swapin 2
-print 3000 3
+listpr
+pteall pages
+run 2
+kill 1
+pteall pages
+run 2
+run 3
+run 4
+run 1
 exit
